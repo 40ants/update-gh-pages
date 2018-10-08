@@ -18,7 +18,7 @@ if [ "$TRAVIS_BRANCH" = "$BUILD_DOCS_FROM_BRANCH" \
   -a "$LISP" = "$BUILD_DOCS_WHEN_LISP" \
   -a "$TRAVIS_OS_NAME" = "$BUILD_DOCS_WHEN_OS" ]; then
     virtualenv env --python=python2.7
-    source env/bin/activate
+    . env/bin/activate
     python --version
     pip --version
     pip install pyopenssl
