@@ -25,7 +25,7 @@ if [ "$TRAVIS_BRANCH" = "$BUILD_DOCS_FROM_BRANCH" \
     pip install pyopenssl
     pip install -r docs/requirements.txt
     ros install 40ants/cldomain
-    bash <(curl -L https://raw.githubusercontent.com/40ants/update-gh-pages/master/build-docs.ros)
+    curl -L https://raw.githubusercontent.com/40ants/update-gh-pages/master/build-docs.ros > ~/build-docs.ros && chmod +x ~/build-docs.ros && ~/build-docs.ros
 else
     echo "Skipping documentation build because environment is not suitable."
 fi
