@@ -13,6 +13,7 @@ BUILD_DOCS_WHEN_OS=${BUILD_DOCS_WHEN_OS:-linux}
 # builds which are running for pull requests will have
 # TRAVIS_BRANCH=reblocks, but TRAVIS_PULL_REQUEST_BRANCH=the-branch
 # and TRAVIS_PULL_REQUEST=42 where 42 is a pull request number
+
 if [ "$TRAVIS_BRANCH" = "$BUILD_DOCS_FROM_BRANCH" \
   -a "$TRAVIS_PULL_REQUEST" = "false" \
   -a "$LISP" = "$BUILD_DOCS_WHEN_LISP" \
@@ -24,7 +25,7 @@ if [ "$TRAVIS_BRANCH" = "$BUILD_DOCS_FROM_BRANCH" \
     pip install pyopenssl
     pip install -r docs/requirements.txt
     ros install 40ants/cldomain
-    curl -L https://raw.githubusercontent.com/40ants/update-gh-pages/master/build-docs.ros | bash
+    curl -L https://raw.githubusercontent.com/40ants/update-gh-pages/master/build-docs.ros | $0
 else
     echo "Skipping documentation build because environment is not suitable."
 fi
